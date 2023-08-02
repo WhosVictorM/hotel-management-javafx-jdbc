@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.whosvictorm.hotelsystem.controllers.MainController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="270.0">
+         <children>
+            <HBox prefHeight="720.0" prefWidth="270.0">
+               <children>
+                  <AnchorPane prefHeight="754.0" prefWidth="270.0" style="-fx-background-color: WHITE;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="240.0" prefWidth="270.0" spacing="5.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/do-utilizador.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lblName" text="Welcome, User" textFill="#1e5128">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="270.0" prefWidth="273.0" spacing="25.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="240.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 6; -fx-background-color: WHITE;" text="Reception">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/reception-bell.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <effect>
+                                    <DropShadow height="20.0" radius="9.5" width="20.0" />
+                                 </effect>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: WHITE; -fx-background-radius: 6;" text="Registration" textAlignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/do-utilizador%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <effect>
+                                    <DropShadow height="20.0" radius="9.5" width="20.0" />
+                                 </effect>
+                              </Button>
+                              <Line endX="195.0" endY="399.0" startX="55.0" startY="399.0" stroke="#1e5128" strokeWidth="3.0" />
+                              <Button fx:id="btLogout" mnemonicParsing="false" onAction="#onBtLogoutAction" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 6; -fx-background-color: #1E5128;" text="Logout" textFill="#f8f8f8">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="140.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/botao-quadrado-delineado-de-logout-com-seta-para-a-direita.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <effect>
+                                    <DropShadow height="20.0" radius="9.5" width="20.0" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" layoutX="87.0" layoutY="533.0" prefHeight="187.0" prefWidth="273.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="510.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="109.0" prefWidth="193.0" spacing="5.0" style="-fx-background-color: Transparent; -fx-border-color: #1E5128; -fx-border-radius: 20;">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Report a bug?" />
+                                    <Label text="Use this to report any error..." />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #1E5128;" text="Report" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="15.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/simbolo-de-mais-preto.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" left="40.0" right="40.0" />
+                                 </VBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Line endX="270.0" endY="240.0" startX="-1.52587890625E-5" startY="239.99998474121094" stroke="#1e5128" strokeWidth="3.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
