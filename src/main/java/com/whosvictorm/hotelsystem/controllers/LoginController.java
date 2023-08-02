@@ -81,6 +81,21 @@ public class LoginController {
         }
     }
 
+    public void openFunctionalTabs(){
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/InitialMenu.fxml"));
+            root = fxmlLoader.load();
+
+            Stage newTab = new Stage();
+            newTab.setScene(new Scene(root));
+            newTab.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void closeLoginTab() {
         Stage loginStage = (Stage) btLogin.getScene().getWindow();
         loginStage.close();

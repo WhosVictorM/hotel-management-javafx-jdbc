@@ -29,6 +29,10 @@ public class StartApplication extends Application {
 
     }
 
+    public static Scene getScene() {
+        return scene;
+    }
+
     public static void main(String[] args) {
         launch();
     }
