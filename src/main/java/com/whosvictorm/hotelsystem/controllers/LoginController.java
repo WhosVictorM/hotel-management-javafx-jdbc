@@ -1,13 +1,14 @@
 package com.whosvictorm.hotelsystem.controllers;
 
 import com.whosvictorm.hotelsystem.db.DB;
-import com.whosvictorm.hotelsystem.db.DataBaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +20,6 @@ public class LoginController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     TextField txtFieldUsername;
@@ -66,29 +66,26 @@ public class LoginController {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/MainView.fxml"));
-            root = fxmlLoader.load();
+            Parent root = fxmlLoader.load();
+
+            FXMLLoader newHBoxTab = new FXMLLoader(getClass().getResource("/Fxml/InitialMenu.fxml"));
+            HBox newHBox = newHBoxTab.load();
+
+            Scene sc = new Scene(root);
+            HBox mainHbox = ((HBox) ((ScrollPane) sc.getRoot()).getContent());
+
+            Node mainMenu = mainHbox.getChildren().get(0);
+            mainHbox.getChildren().clear();
+            mainHbox.getChildren().add(mainMenu);
+            mainHbox.getChildren().addAll(newHBox.getChildren());
 
             MainController mc = fxmlLoader.getController();
             mc.displayName(txtFieldUsername.getText());
 
             Stage newTab = new Stage();
-            newTab.setScene(new Scene(root));
+            newTab.setScene(sc);
             newTab.setTitle("Hotel HUD");
-            newTab.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openFunctionalTabs(){
-        try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/InitialMenu.fxml"));
-            root = fxmlLoader.load();
-
-            Stage newTab = new Stage();
-            newTab.setScene(new Scene(root));
+            newTab.setResizable(false);
             newTab.show();
 
         } catch (IOException e) {
