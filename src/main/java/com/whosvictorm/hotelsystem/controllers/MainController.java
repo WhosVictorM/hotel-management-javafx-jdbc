@@ -19,6 +19,8 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
+    private String name;
+
     @FXML
     Label lblName;
 
@@ -28,7 +30,23 @@ public class MainController {
     @FXML
     Button btHome;
 
-    public void onBtHomeAction(){
+    @FXML
+    Button btReception;
+
+    public void onBtHomeAction() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+        Parent root = fxmlLoader.load();
+        LoginController lc = fxmlLoader.getController();
+        closeHudTab();
+        lc.openNewTab("/Fxml/MainView.fxml","/Fxml/InitialMenu.fxml");
+    }
+
+    public void onBtReceptionAction() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+        Parent root = fxmlLoader.load();
+        LoginController lc = fxmlLoader.getController();
+        closeHudTab();
+        lc.openNewTab("/Fxml/MainView.fxml","/Fxml/Reception.fxml");
     }
 
     public void onBtLogoutAction(ActionEvent event){
@@ -70,7 +88,9 @@ public class MainController {
         logoutStage.close();
     }
 
+
     public void displayName(String username){
         lblName.setText("Welcome, " + username);
     }
+
 }

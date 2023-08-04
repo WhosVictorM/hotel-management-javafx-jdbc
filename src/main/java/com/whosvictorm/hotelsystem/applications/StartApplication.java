@@ -12,6 +12,16 @@ public class StartApplication extends Application {
 
     private static Scene scene;
 
+    private static String username;
+
+    public static String getUsername(){
+        return username;
+    }
+    public static void setUsername(String username){
+        StartApplication.username = username;
+    }
+
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/Fxml/Login.fxml"));

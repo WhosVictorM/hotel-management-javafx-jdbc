@@ -48,7 +48,7 @@
                               <DropShadow height="20.0" radius="9.5" width="20.0" />
                            </effect>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 6; -fx-background-color: WHITE;" text="Reception">
+                        <Button fx:id="btReception" mnemonicParsing="false" onAction="#onBtReceptionAction" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 6; -fx-background-color: WHITE;" text="Reception">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

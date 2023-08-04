@@ -1,5 +1,6 @@
 package com.whosvictorm.hotelsystem.controllers;
 
+import com.whosvictorm.hotelsystem.applications.StartApplication;
 import com.whosvictorm.hotelsystem.db.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class LoginController {
+
 
     private Stage stage;
     private Scene scene;
@@ -36,6 +38,7 @@ public class LoginController {
     public void onBtNewAction(ActionEvent event) throws IOException {
 
         if (!txtFieldUsername.getText().isBlank() && !pwFieldPassword.getText().isBlank()) {
+            StartApplication.setUsername(txtFieldUsername.getText());
             validateLogin();
         } else {
             lblErrorMessage.setText("Please enter username and password");
@@ -52,7 +55,7 @@ public class LoginController {
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
             if (queryResult.next()) {
-                openNewTab();
+                openNewTab("/Fxml/MainView.fxml", "/Fxml/InitialMenu.fxml");
                 closeLoginTab();
             } else {
                 lblErrorMessage.setText("Invalid login, try again.");
@@ -62,13 +65,13 @@ public class LoginController {
         }
     }
 
-    private void openNewTab() {
+    public synchronized void openNewTab(String fxml1, String fxml2) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/MainView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml1));
             Parent root = fxmlLoader.load();
 
-            FXMLLoader newHBoxTab = new FXMLLoader(getClass().getResource("/Fxml/InitialMenu.fxml"));
+            FXMLLoader newHBoxTab = new FXMLLoader(getClass().getResource(fxml2));
             HBox newHBox = newHBoxTab.load();
 
             Scene sc = new Scene(root);
@@ -80,7 +83,7 @@ public class LoginController {
             mainHbox.getChildren().addAll(newHBox.getChildren());
 
             MainController mc = fxmlLoader.getController();
-            mc.displayName(txtFieldUsername.getText());
+            mc.displayName(StartApplication.getUsername());
 
             Stage newTab = new Stage();
             newTab.setScene(sc);
@@ -97,6 +100,5 @@ public class LoginController {
         Stage loginStage = (Stage) btLogin.getScene().getWindow();
         loginStage.close();
     }
-
 
 }
