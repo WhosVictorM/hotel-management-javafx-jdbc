@@ -1,4 +1,4 @@
-package com.example.javafxjdbc.db;
+package com.whosvictorm.hotelsystem.db;
 
 import java.io.Serial;
 
